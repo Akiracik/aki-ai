@@ -123,4 +123,4 @@ Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
 
 ## İletişim
 
-Sorularınız veya geri bildirimleriniz için: (Discord)[https://discord.com/users/337545269845688361] (GitHub)[https://github.com/Akiracik]
+Sorularınız veya geri bildirimleriniz için: [Discord](https://discord.com/users/337545269845688361) |  [GitHub](https://github.com/Akiracik)
