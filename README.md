@@ -117,6 +117,10 @@ Yeni yapay zeka modelleri eklemek için:
 1. `index.html` dosyasındaki model seçim modalını güncelleyin
 2. `api.js` dosyasında yeni model için destek ekleyin
 
+## Demo
+
+Link: https://aki-ai.vercel.app/
+
 ## Lisans
 
 Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
