@@ -1,0 +1,480 @@
+/* Genel Stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    line-height: 1.5;
+    transition: background-color var(--transition-normal);
+}
+
+/* Scrollbar Stilleri */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--tertiary-bg);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--border-color);
+}
+
+/* Ana İçerik Alanı */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+/* Üst Başlık */
+.header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-bg);
+    height: var(--header-height);
+    transition: background-color var(--transition-normal);
+}
+
+.model-selector {
+    display: flex;
+    align-items: center;
+    background-color: var(--tertiary-bg);
+    padding: 8px 16px;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.model-selector:hover {
+    background-color: var(--border-color);
+}
+
+.model-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--gradient-bg);
+    border-radius: var(--border-radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: var(--font-weight-bold);
+    color: white;
+}
+
+.model-name {
+    font-weight: var(--font-weight-semibold);
+    margin-right: 10px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.header-btn {
+    background-color: var(--tertiary-bg);
+    border: none;
+    color: var(--text-color);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.header-btn:hover {
+    background-color: var(--border-color);
+}
+
+/* Giriş Alanı */
+.input-area {
+    padding: 20px 24px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--secondary-bg);
+    transition: background-color var(--transition-normal);
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--tertiary-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 8px 16px;
+    transition: all var(--transition-normal);
+    border: 1px solid var(--border-color);
+}
+
+.input-container:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.2);
+}
+
+.input-field {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    outline: none;
+    padding: 10px 0;
+    font-size: var(--font-size-md);
+    font-family: inherit;
+    resize: none;
+    max-height: 150px;
+    transition: color var(--transition-normal);
+}
+
+.input-field::placeholder {
+    color: var(--text-secondary);
+}
+
+.input-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.input-button {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    margin-left: 12px;
+    font-size: var(--font-size-lg);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-fast);
+}
+
+.input-button:hover {
+    background-color: var(--border-color);
+    color: var(--text-color);
+}
+
+.send-button {
+    background: var(--gradient-bg);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 12px;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-primary);
+}
+
+.send-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 77, 255, 0.4);
+}
+
+.send-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Modal Stilleri */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    z-index: var(--z-index-modal);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: none;
+    opacity: 0;
+    transition: all var(--transition-normal);
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    display: block;
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: var(--font-size-lg);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-fast);
+}
+
+.close-btn:hover {
+    background-color: var(--tertiary-bg);
+    color: var(--text-color);
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+/* Model Seçim Modalı */
+.model-option {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    border: 1px solid var(--border-color);
+}
+
+.model-option:hover {
+    background-color: var(--tertiary-bg);
+}
+
+.model-option.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(124, 77, 255, 0.1);
+}
+
+.model-option-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--gradient-bg);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    font-weight: var(--font-weight-bold);
+    color: white;
+    font-size: var(--font-size-md);
+}
+
+.model-option-info h4 {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 4px;
+}
+
+.model-option-info p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Ayarlar Modalı */
+.settings-section {
+    margin-bottom: 24px;
+}
+
+.settings-section h4 {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.setting-item select {
+    background-color: var(--tertiary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 8px 12px;
+    border-radius: var(--border-radius-md);
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--tertiary-bg);
+    transition: var(--transition-normal);
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: var(--transition-normal);
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Profil Modalı */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.profile-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--warning-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+}
+
+.profile-info h4 {
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 4px;
+}
+
+.profile-info p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: var(--tertiary-bg);
+    border: none;
+    border-radius: var(--border-radius-md);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: var(--font-size-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.profile-btn i {
+    margin-right: 12px;
+}
+
+.profile-btn:hover {
+    background-color: var(--border-color);
+}
+
+.profile-btn.logout {
+    background-color: rgba(255, 82, 82, 0.1);
+    color: var(--error-color);
+}
+
+.profile-btn.logout:hover {
+    background-color: rgba(255, 82, 82, 0.2);
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-index-overlay);
+    display: none;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}

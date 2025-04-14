@@ -1,0 +1,79 @@
+:root {
+    /* Ana Renkler */
+    --primary-color: #7c4dff;
+    --primary-light: #9e7bff;
+    --primary-dark: #5c3dc2;
+    
+    /* Arka Plan Renkleri */
+    --background-color: #0f1116;
+    --secondary-bg: #1a1d24;
+    --tertiary-bg: #252a33;
+    
+    /* Metin Renkleri */
+    --text-color: #ffffff;
+    --text-secondary: #a0a8b8;
+    
+    /* Sınır ve Ayırıcı Renkleri */
+    --border-color: #2e3340;
+    
+    /* Durum Renkleri */
+    --success-color: #00c853;
+    --warning-color: #ffab00;
+    --error-color: #ff5252;
+    --info-color: #2196f3;
+    
+    /* Gradyanlar */
+    --gradient-bg: linear-gradient(135deg, #7c4dff 0%, #5c3dc2 100%);
+    --gradient-text: linear-gradient(135deg, #ffffff 0%, #d0c5ff 100%);
+    
+    /* Gölgeler */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.3);
+    --shadow-primary: 0 5px 15px rgba(124, 77, 255, 0.3);
+    
+    /* Animasyon Süreleri */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    --transition-slow: 0.5s;
+    
+    /* Boyutlar */
+    --sidebar-width: 280px;
+    --sidebar-collapsed-width: 70px;
+    --header-height: 60px;
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-xl: 16px;
+    
+    /* Z-indeks Değerleri */
+    --z-index-dropdown: 100;
+    --z-index-modal: 200;
+    --z-index-overlay: 150;
+    --z-index-tooltip: 300;
+    
+    /* Yazı Tipi Boyutları */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-xxl: 32px;
+    
+    /* Yazı Tipi Ağırlıkları */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+}
+
+/* Açık Tema için Değişkenler */
+[data-theme="light"] {
+    --background-color: #f5f7fa;
+    --secondary-bg: #ffffff;
+    --tertiary-bg: #eef1f6;
+    --text-color: #1a1d24;
+    --text-secondary: #5a6474;
+    --border-color: #dce0e8;
+}

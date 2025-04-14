@@ -1,0 +1,460 @@
+/* Sohbet Alanı Stilleri */
+.chat-area {
+    flex-grow: 1;
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-image: radial-gradient(circle at center, rgba(124, 77, 255, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* Hoş Geldiniz Ekranı */
+.welcome-screen {
+    text-align: center;
+    max-width: 700px;
+    margin: 100px auto 0;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.ai-logo {
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-bg);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 40px;
+    font-weight: var(--font-weight-bold);
+    box-shadow: var(--shadow-primary);
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.ai-logo::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+.ai-title {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 16px;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.ai-description {
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    font-size: var(--font-size-md);
+    line-height: 1.6;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+    width: 100%;
+}
+
+.feature-item {
+    background-color: var(--secondary-bg);
+    border-radius: var(--border-radius-lg);
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    transition: all var(--transition-normal);
+    border: 1px solid var(--border-color);
+}
+
+.feature-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--tertiary-bg);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    color: var(--primary-light);
+    font-size: var(--font-size-lg);
+}
+
+.feature-content h3 {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 8px;
+}
+
+.feature-content p {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+/* Sohbet Mesajları */
+.chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.message {
+    display: flex;
+    gap: 16px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.message-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-semibold);
+    flex-shrink: 0;
+}
+
+.message-avatar.ai {
+    background: var(--gradient-bg);
+    color: white;
+}
+
+.message-avatar.user {
+    background-color: var(--warning-color);
+}
+
+.message-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message-author {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-sm);
+}
+
+.message-time {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+}
+
+.message-text {
+    line-height: 1.6;
+    font-size: var(--font-size-md);
+}
+
+.message-text p {
+    margin-bottom: 16px;
+}
+
+.message-text p:last-child {
+    margin-bottom: 0;
+}
+
+.message-text pre {
+    background-color: var(--tertiary-bg);
+    padding: 16px;
+    border-radius: var(--border-radius-md);
+    overflow-x: auto;
+    margin-bottom: 16px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: var(--font-size-sm);
+}
+
+.message-text code {
+    background-color: var(--tertiary-bg);
+    padding: 2px 6px;
+    border-radius: var(--border-radius-sm);
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+.message-text ul, .message-text ol {
+    margin-bottom: 16px;
+    padding-left: 24px;
+}
+
+.message-text li {
+    margin-bottom: 8px;
+}
+
+.message-text a {
+    color: var(--primary-light);
+    text-decoration: none;
+}
+
+.message-text a:hover {
+    text-decoration: underline;
+}
+
+.message-text img {
+    max-width: 100%;
+    border-radius: var(--border-radius-md);
+    margin-bottom: 16px;
+}
+
+.message-text table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+
+.message-text th, .message-text td {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.message-text th {
+    background-color: var(--tertiary-bg);
+    font-weight: var(--font-weight-semibold);
+}
+
+.message-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.message-action-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.message-action-btn:hover {
+    background-color: var(--tertiary-bg);
+    color: var(--text-color);
+}
+
+/* Yazıyor Göstergesi */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.typing-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.typing-dot:nth-child(1) {
+    animation: pulse 1.5s infinite;
+}
+
+.typing-dot:nth-child(2) {
+    animation: pulse 1.5s infinite 0.3s;
+}
+
+.typing-dot:nth-child(3) {
+    animation: pulse 1.5s infinite 0.6s;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Kod Bloğu Araç Çubuğu */
+.code-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 16px;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    margin-bottom: -16px;
+    margin-top: 16px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: var(--font-size-xs);
+}
+
+.code-language {
+    color: var(--text-secondary);
+}
+
+.code-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.code-action-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    padding: 4px;
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition-fast);
+}
+
+.code-action-btn:hover {
+    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Resim Görüntüleme */
+.image-preview {
+    position: relative;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+.image-preview img {
+    max-width: 100%;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.image-preview img:hover {
+    box-shadow: var(--shadow-md);
+}
+
+.image-actions {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.image-preview:hover .image-actions {
+    opacity: 1;
+}
+
+.image-action-btn {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.image-action-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: translateY(-2px);
+}
+
+/* Boş Sohbet Durumu */
+.empty-chat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 0 24px;
+}
+
+.empty-chat-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.empty-chat-title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: 8px;
+}
+
+.empty-chat-text {
+    font-size: var(--font-size-md);
+    max-width: 500px;
+    margin-bottom: 24px;
+}
+
+.empty-chat-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius-md);
+    font-family: inherit;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.empty-chat-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aki AI - Gelişmiş Yapay Zeka Asistanı</title>
+    <meta name="description" content="Aki AI, kodlama, içerik üretimi, veri analizi ve planlama görevlerinde size yardımcı olabilecek gelişmiş bir yapay zeka asistanıdır.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Dosyaları -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-container">
+                <img src="assets/images/logo.svg" alt="Aki AI Logo" class="logo-icon">
+                <div class="logo-text">Aki AI</div>
+            </div>
+            <button class="new-chat-btn" id="newChatBtn" title="Yeni Sohbet">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-options">
+            <div class="section-title">Araçlar</div>
+            <div class="option active" data-tool="chat">
+                <i class="fas fa-comment-alt option-icon"></i>
+                <span>Sohbet</span>
+            </div>
+            <div class="option" data-tool="image">
+                <i class="fas fa-image option-icon"></i>
+                <span>Resim</span>
+            </div>
+            <div class="option" data-tool="video">
+                <i class="fas fa-video option-icon"></i>
+                <span>Video</span>
+            </div>
+        </div>
+        
+        <div class="chats" id="chatsList">
+            <div class="section-title">Son Sohbetler</div>
+            <!-- Sohbet geçmişi JavaScript ile doldurulacak -->
+        </div>
+        
+        <div class="user-profile" id="userProfile">
+            <div class="avatar">K</div>
+            <div class="user-info">
+                <div class="user-name">Kullanıcı</div>
+                <div class="user-status">Pro Üyelik</div>
+            </div>
+            <div class="user-menu">
+                <i class="fas fa-ellipsis-v"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="header">
+            <div class="model-selector" id="modelSelector">
+                <div class="model-icon">A</div>
+                <span class="model-name">Aki AI v1.0</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="header-actions">
+                <button class="header-btn" id="historyBtn" title="Geçmiş">
+                    <i class="fas fa-history"></i>
+                </button>
+                <button class="header-btn" id="settingsBtn" title="Ayarlar">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="chat-area" id="chatArea">
+            <!-- Sohbet içeriği JavaScript ile doldurulacak -->
+        </div>
+        
+        <div class="input-area">
+            <div class="input-container">
+                <textarea class="input-field" id="messageInput" placeholder="Bugün size nasıl yardımcı olabilirim?" rows="1"></textarea>
+                <div class="input-buttons">
+                    <button class="input-button" id="attachBtn" title="Dosya Ekle">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <button class="input-button" id="micBtn" title="Sesli Komut">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <button class="send-button" id="sendBtn" title="Gönder">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Model Seçim Modalı -->
+    <div class="modal" id="modelModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Model Seçin</h3>
+                <button class="close-btn" id="closeModelModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="model-option selected" data-model="aki-v1">
+                    <div class="model-option-icon">A</div>
+                    <div class="model-option-info">
+                        <h4>Aki AI v1.0</h4>
+                        <p>Genel amaçlı yapay zeka asistanı</p>
+                    </div>
+                </div>
+                <div class="model-option" data-model="aki-pro">
+                    <div class="model-option-icon">A+</div>
+                    <div class="model-option-info">
+                        <h4>Aki AI Pro</h4>
+                        <p>Gelişmiş yetenekler ve daha hızlı yanıtlar</p>
+                    </div>
+                </div>
+                <div class="model-option" data-model="aki-creative">
+                    <div class="model-option-icon">AC</div>
+                    <div class="model-option-info">
+                        <h4>Aki Creative</h4>
+                        <p>Yaratıcı içerik üretimi için özelleştirilmiş model</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ayarlar Modalı -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Ayarlar</h3>
+                <button class="close-btn" id="closeSettingsModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-section">
+                    <h4>Görünüm</h4>
+                    <div class="setting-item">
+                        <span>Tema</span>
+                        <select id="themeSelector">
+                            <option value="dark">Koyu Tema</option>
+                            <option value="light">Açık Tema</option>
+                            <option value="system">Sistem Teması</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <span>Yazı Boyutu</span>
+                        <select id="fontSizeSelector">
+                            <option value="small">Küçük</option>
+                            <option value="medium" selected>Orta</option>
+                            <option value="large">Büyük</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h4>Sohbet</h4>
+                    <div class="setting-item">
+                        <span>Otomatik Kaydırma</span>
+                        <label class="switch">
+                            <input type="checkbox" id="autoScrollToggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span>Ses Bildirimleri</span>
+                        <label class="switch">
+                            <input type="checkbox" id="soundNotificationsToggle">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kullanıcı Profil Modalı -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Profil</h3>
+                <button class="close-btn" id="closeProfileModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-header">
+                    <div class="profile-avatar">K</div>
+                    <div class="profile-info">
+                        <h4>Kullanıcı</h4>
+                        <p>kullanici@example.com</p>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="profile-btn" id="editProfileBtn">
+                        <i class="fas fa-user-edit"></i>
+                        Profili Düzenle
+                    </button>
+                    <button class="profile-btn" id="subscriptionBtn">
+                        <i class="fas fa-crown"></i>
+                        Üyelik Bilgileri
+                    </button>
+                    <button class="profile-btn logout" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Çıkış Yap
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sohbet Silme Onay Modalı -->
+    <div class="modal" id="deleteConfirmModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sohbeti Sil</h3>
+                <button class="close-btn" id="closeDeleteModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="deleteConfirmText">Bu sohbeti silmek istediğinize emin misiniz?</p>
+                <div class="modal-actions">
+                    <button class="modal-btn cancel" id="cancelDeleteBtn">İptal</button>
+                    <button class="modal-btn delete" id="confirmDeleteBtn">Sil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sohbet Düzenleme Modalı -->
+    <div class="modal" id="editChatModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sohbet Başlığını Düzenle</h3>
+                <button class="close-btn" id="closeEditChatModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="chatTitleInput">Başlık</label>
+                    <input type="text" id="chatTitleInput" class="form-input" placeholder="Sohbet başlığı">
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-btn cancel" id="cancelEditBtn">İptal</button>
+                    <button class="modal-btn save" id="saveChatTitleBtn">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Araç Kullanılamıyor Uyarısı için CSS -->
+        <style>
+            .tool-warning {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: var(--secondary-bg);
+                border-radius: var(--border-radius-lg);
+                box-shadow: var(--shadow-lg);
+                padding: 0;
+                z-index: 1000;
+                max-width: 400px;
+                transform: translateY(-100px);
+                opacity: 0;
+                transition: all 0.3s ease;
+            }
+            
+            .tool-warning.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .tool-warning-content {
+                display: flex;
+                align-items: flex-start;
+                padding: 16px;
+            }
+            
+            .tool-warning-content i.fa-exclamation-triangle {
+                color: var(--warning-color);
+                font-size: 24px;
+                margin-right: 16px;
+                margin-top: 2px;
+            }
+            
+            .tool-warning-text {
+                flex-grow: 1;
+            }
+            
+            .tool-warning-text h3 {
+                font-size: 16px;
+                font-weight: 600;
+                margin-bottom: 4px;
+            }
+            
+            .tool-warning-text p {
+                font-size: 14px;
+                color: var(--text-secondary);
+                margin: 0;
+            }
+            
+            .tool-warning-close {
+                background: none;
+                border: none;
+                color: var(--text-secondary);
+                cursor: pointer;
+                padding: 4px;
+                margin-left: 8px;
+                border-radius: 4px;
+                transition: all 0.2s ease;
+            }
+            
+            .tool-warning-close:hover {
+                background-color: var(--tertiary-bg);
+                color: var(--text-color);
+            }
+            
+            /* Modal Butonları */
+            .modal-actions {
+                display: flex;
+                justify-content: flex-end;
+                gap: 12px;
+                margin-top: 24px;
+            }
+            
+            .modal-btn {
+                padding: 10px 20px;
+                border-radius: var(--border-radius-md);
+                font-family: inherit;
+                font-size: var(--font-size-md);
+                font-weight: var(--font-weight-medium);
+                cursor: pointer;
+                transition: all var(--transition-fast);
+            }
+            
+            .modal-btn.cancel {
+                background-color: var(--tertiary-bg);
+                color: var(--text-color);
+                border: none;
+            }
+            
+            .modal-btn.cancel:hover {
+                background-color: var(--border-color);
+            }
+            
+            .modal-btn.delete {
+                background-color: rgba(255, 82, 82, 0.1);
+                color: var(--error-color);
+                border: 1px solid var(--error-color);
+            }
+            
+            .modal-btn.delete:hover {
+                background-color: var(--error-color);
+                color: white;
+            }
+            
+            .modal-btn.save {
+                background-color: var(--primary-color);
+                color: white;
+                border: none;
+            }
+            
+            .modal-btn.save:hover {
+                background-color: var(--primary-dark);
+            }
+            
+            /* Form Elemanları */
+            .form-group {
+                margin-bottom: 16px;
+            }
+            
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: var(--font-weight-medium);
+                font-size: var(--font-size-sm);
+            }
+            
+            .form-input {
+                width: 100%;
+                padding: 10px 12px;
+                border-radius: var(--border-radius-md);
+                border: 1px solid var(--border-color);
+                background-color: var(--tertiary-bg);
+                color: var(--text-color);
+                font-family: inherit;
+                font-size: var(--font-size-md);
+                transition: all var(--transition-fast);
+            }
+            
+            .form-input:focus {
+                outline: none;
+                border-color: var(--primary-color);
+                box-shadow: 0 0 0 2px rgba(124, 77, 255, 0.2);
+            }
+        </style>
+    
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
+    
+        <!-- JavaScript Dosyaları -->
+        <script src="js/api.js"></script>
+        <script src="js/chat.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+    </html>

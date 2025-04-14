@@ -1,0 +1,177 @@
+/* Duyarlı Tasarım Stilleri */
+@media (max-width: 1200px) {
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    :root {
+        --sidebar-width: 240px;
+    }
+    
+    .ai-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .ai-logo {
+        width: 80px;
+        height: 80px;
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .sidebar-header {
+        width: auto;
+        border-bottom: none;
+        padding: 12px 16px;
+    }
+    
+    .sidebar-options {
+        display: flex;
+        padding: 0 16px;
+        border-left: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+    }
+    
+    .option {
+        margin-bottom: 0;
+        padding: 12px;
+    }
+    
+    .option-icon {
+        margin-right: 0;
+    }
+    
+    .option span:not(.option-icon) {
+        display: none;
+    }
+    
+    .chats, .section-title {
+        display: none;
+    }
+    
+    .user-profile {
+        margin-left: auto;
+        border-top: none;
+        padding: 12px 16px;
+    }
+    
+    .user-info {
+        display: none;
+    }
+    
+    .user-menu {
+        display: none;
+    }
+    
+    .main-content {
+        height: calc(100vh - 60px);
+    }
+    
+    .welcome-screen {
+        margin-top: 40px;
+    }
+    
+    .ai-description {
+        font-size: var(--font-size-sm);
+    }
+    
+    .message {
+        gap: 12px;
+    }
+    
+    .message-avatar {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .input-area {
+        padding: 12px 16px;
+    }
+    
+    .input-container {
+        padding: 6px 12px;
+    }
+    
+    .input-field {
+        font-size: var(--font-size-sm);
+    }
+    
+    .modal {
+        width: 95%;
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding: 12px 16px;
+    }
+    
+    .model-name {
+        display: none;
+    }
+    
+    .model-selector {
+        padding: 8px;
+    }
+    
+    .chat-area {
+        padding: 16px;
+    }
+    
+    .ai-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .ai-logo {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+    
+    .feature-item {
+        padding: 16px;
+    }
+    
+    .feature-icon {
+        width: 32px;
+        height: 32px;
+        font-size: var(--font-size-md);
+    }
+    
+    .message-text {
+        font-size: var(--font-size-sm);
+    }
+    
+    .message-actions {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-height: 600px) {
+    .welcome-screen {
+        margin-top: 20px;
+    }
+    
+    .ai-logo {
+        margin-bottom: 16px;
+    }
+    
+    .ai-description {
+        margin-bottom: 16px;
+    }
+}
