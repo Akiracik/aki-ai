@@ -2,6 +2,7 @@
 
 Aki AI, kodlama, içerik üretimi, veri analizi ve planlama görevlerinde yardımcı olabilecek gelişmiş bir yapay zeka asistanıdır.
 
+
 ## Özellikler
 
 - **Sohbet Arayüzü**: Kullanıcı dostu, modern bir sohbet arayüzü
@@ -45,60 +46,6 @@ Gerçek bir yapay zeka entegrasyonu için `js/api.js` dosyasını güncelleyin:
 6. Farklı yapay zeka modelleri arasında geçiş yapmak için üst menüdeki model seçicisini kullanın
 7. Ayarlar menüsünden tema ve yazı boyutu gibi görünüm ayarlarını değiştirebilirsiniz
 
-## Dosya Yapısı
-```markdown
-aki-ai/
-│
-├── index.html # Ana HTML dosyası
-├── css/
-│ ├── style.css # Ana stil dosyası
-│ ├── variables.css # CSS değişkenleri
-│ ├── sidebar.css # Kenar çubuğu stilleri
-│ ├── chat.css # Sohbet alanı stilleri
-│ └── responsive.css # Duyarlı tasarım stilleri
-│
-├── js/
-│ ├── main.js # Ana JavaScript dosyası
-│ ├── ui.js # Kullanıcı arayüzü işlevleri
-│ ├── chat.js # Sohbet işlevleri
-│ └── api.js # API bağlantıları (yapay zeka entegrasyonu için)
-│
-├── assets/
-│ ├── images/
-│ │ ├── logo.svg # Aki AI logosu
-│ │ ├── favicon.ico # Site favicon
-│ │ └── user-default.png # Varsayılan kullanıcı avatarı
-│ │
-│ ├── icons/ # Özel ikonlar (gerekirse)
-│ └── fonts/ # Özel yazı tipleri (gerekirse)
-│
-└── README.md # Proje dokümantasyonu
-```
-
-## Özelleştirme
-
-### Tema Değiştirme
-
-Aki AI üç farklı tema seçeneği sunar:
-- **Koyu Tema**: Varsayılan tema
-- **Açık Tema**: Daha aydınlık bir arayüz
-- **Sistem Teması**: İşletim sisteminizin tema ayarlarına uyum sağlar
-
-Tema ayarlarını değiştirmek için sağ üst köşedeki ayarlar simgesine tıklayın.
-
-### Yazı Boyutu
-
-Yazı boyutunu değiştirmek için ayarlar menüsünden "Yazı Boyutu" seçeneğini kullanabilirsiniz:
-- Küçük
-- Orta (varsayılan)
-- Büyük
-
-## Tarayıcı Desteği
-
-- Chrome (son 2 sürüm)
-- Firefox (son 2 sürüm)
-- Safari (son 2 sürüm)
-- Edge (son 2 sürüm)
 
 ## Geliştirme
 
@@ -124,7 +71,3 @@ Link: https://aki-ai.vercel.app/
 ## Lisans
 
 Bu proje [MIT Lisansı](LICENSE) altında lisanslanmıştır.
-
-## İletişim
-
-Sorularınız veya geri bildirimleriniz için: [Discord](https://discord.com/users/337545269845688361) - [GitHub](https://github.com/Akiracik)
